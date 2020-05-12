@@ -1,0 +1,1 @@
+libs used by Windows are deleted.
