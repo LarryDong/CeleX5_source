@@ -1,7 +1,7 @@
 # CeleX5_resource
 
 原CeleX的SDK的git因包含安装包等内容，过大难以保存修改。
-（官方仓库：[https://github.com/LarryDong/CeleX5-MIPI](https://github.com/LarryDong/CeleX5-MIPI) ）
+（官方仓库：[https://github.com/CelePixel/CeleX5-MIPI](https://github.com/CelePixel/CeleX5-MIPI) ）
 
 这里只保留了：
 1. CeleX5的源代码
