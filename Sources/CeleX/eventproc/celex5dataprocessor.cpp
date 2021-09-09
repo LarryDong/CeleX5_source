@@ -2686,7 +2686,7 @@ void CeleX5DataProcessor::saveIntensityEvent(int col, int adc12bit, int adc8bit)
 		eventData.col = col;
 		eventData.adc = adc12bit;
 		//eventData.t_off_pixel = m_uiEventTCounter;
-		eventData.tOffPixelIncreasing = m_uiEventTCounterTotal * m_uiEventTUnitN / m_uiCurrentEventTUnitD;
+		eventData.tOffPixelIncreasing = ((size_t)m_uiEventTCounterTotal) * ((size_t)m_uiEventTUnitN) / ((size_t)m_uiCurrentEventTUnitD);
 		eventData.tInPixelIncreasing = 0;
 
 		//--- cal polarity ---
@@ -2735,7 +2735,7 @@ void CeleX5DataProcessor::saveOpticalFlowEvent(int col, int adc12bit, int adc8bi
 	else
 		tRampNo = m_uiEOTrampNo;
 
-	uint32_t tInPixelIncreasing =  adcFPN*7550/3310 + tRampNo*7550; //(adcFPN+tRampNo*3310)*7750/3310, 3310*2.281=7750¦Ìs
+	uint32_t tInPixelIncreasing =  adcFPN*7550/3310 + tRampNo*7550; //(adcFPN+tRampNo*3310)*7750/3310, 3310*2.281=7750ï¿½ï¿½s
 	if (tInPixelIncreasing > m_uiMaxInPixelTimestamp)
 		m_uiMaxInPixelTimestamp = tInPixelIncreasing;
 	if (tInPixelIncreasing < m_uiMinInPixelTimestamp)
@@ -2757,7 +2757,7 @@ void CeleX5DataProcessor::saveOpticalFlowEvent(int col, int adc12bit, int adc8bi
 		eventData.col = col;
 		eventData.polarity = 0;
 		eventData.adc = adcFPN;
-		eventData.tOffPixelIncreasing = m_uiEventTCounterTotal * m_uiEventTUnitN / m_uiCurrentEventTUnitD;
+		eventData.tOffPixelIncreasing = ((size_t)m_uiEventTCounterTotal) * m_uiEventTUnitN / m_uiCurrentEventTUnitD;
 		eventData.tInPixelIncreasing = tInPixelIncreasing;
 
 		if (m_bEventDenoisingEnabled)
@@ -2807,7 +2807,7 @@ void CeleX5DataProcessor::saveFormat2Event(int column, int adc)
 				eventData.col = column;
 				eventData.adc = adc;
 				//eventData.t_off_pixel = m_uiEventTCounter;
-				eventData.tOffPixelIncreasing = m_uiEventTCounterTotal * m_uiEventTUnitN / m_uiCurrentEventTUnitD;
+				eventData.tOffPixelIncreasing = ((size_t)m_uiEventTCounterTotal) * m_uiEventTUnitN / m_uiCurrentEventTUnitD;
 
 				if (m_bEventDenoisingEnabled)
 				{

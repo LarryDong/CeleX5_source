@@ -9,10 +9,20 @@
 3. Samples示例
 4. 文档
 
-更新(2021.02)：上传 CeleX5新一版的用户手册(v2.2)。官方的github没有给出来（还是v2.0版本)，是自己从别的网页搜到的。
+更新(2021.02)：上传 CeleX5新一版的用户手册(v2.2)。官方的github没有给出来（还是v2.0版本），是自己从别的网页搜到的。
+
+## 源码维护
+由于芯仑并没有维护源码，我个人在这里对bug进行维护。如果您在使用时遇到bug，无论是否修复，都清联系我，我在这里尽可能对源码保持更新。
+
+Bug1：`tOffPixelIncreasing`和`tInPixelIncreasing`在计算时溢出的问题。
+
+问提原因：源码计算时间时，`uint32_t`造成溢出。改用`size_t`格式。  
+您需要重新编译`Sources`文件，以生成更新的`libCeleX.so`库文件，并替换原有库。  
+
 
 ## 技术交流
 如果在使用CeleX传感器遇到技术问题，欢迎在issue中提问，大家一起交流。
+
 
 ## 友情链接
 这里提供一些我个人的一些总结，包括代码和CSDN博客。持续更新。
@@ -23,17 +33,6 @@
 
 不依赖ROS环境的纯C++读取事件的demo：[https://github.com/LarryDong/dvs_cpp_dataLoader](https://github.com/LarryDong/dvs_cpp_dataLoader)
 
-[【CeleX5事件相机使用系列】购买与初体验](https://blog.csdn.net/tfb760/article/details/106049719)
-
-[【CeleX5事件相机使用系列】第一个c++程序](https://blog.csdn.net/tfb760/article/details/106085442)
-
-[【CeleX5事件相机使用系列】ROS下的简单使用](https://blog.csdn.net/tfb760/article/details/113922202)
-
-[【CeleX5事件相机使用系列】Ubuntu下Loop模式的使用（同时获取灰度图与事件）](https://blog.csdn.net/tfb760/article/details/113943504)
-
-[【CeleX5事件相机使用系列】传感器时间戳同步问题](https://blog.csdn.net/tfb760/article/details/114041515)
-
-
 ---
 
 # English Comment
@@ -43,6 +42,14 @@ This is a brief version of CeleX5 SDK.
 Here I only reserve: CeleX_MP Source code, demo, samples, and key documents.
 
 Update(2021.02): User guide (v2.2) is uploaded. The newest version on official git so far is v2.0. This new version was found from google.
+
+## Personal Support
+
+CelePixel did not maintain this code any more. I would try to fix bugs if you meet. Please contact me no matter you have solved one or just need some help.  
+
+Bug1：`tOffPixelIncreasing` and `tInPixelIncreasing` overflow.
+
+`celex5dataprocessor.cpp` is modified. Please re-compile your source code to generate `libCeleX.so` and replace the old one.
 
 ## Technical Issue
 If you meet some difficulties using this sensor, and cannot find any solutions from reference documents, you can make an issue here. We can try to solve it together.
@@ -55,18 +62,4 @@ Standard and Event camera fusion for feature tracking: [FusionTracking](https://
 Demo: invert polaritis in events, using ROS: [https://github.com/LarryDong/dvs_inverter](https://github.com/LarryDong/dvs_inverter)
 
 Demo: event stream processing by C++, without ROS: [https://github.com/LarryDong/dvs_cpp_dataLoader](https://github.com/LarryDong/dvs_cpp_dataLoader)
-
-
-(Following  blogs are in Chinese Only)
-
-[【Using CeleX_MP】, about buying and unboxing](https://blog.csdn.net/tfb760/article/details/106049719)
-
-[【Using CeleX_MP】, the first C++ demo](https://blog.csdn.net/tfb760/article/details/106085442)
-
-[【Using CeleX_MP】, using CeleX_MP under ROS](https://blog.csdn.net/tfb760/article/details/113922202)
-
-[【Using CeleX_MP】, Loop-mode in Ubuntu (get events&frames together)](https://blog.csdn.net/tfb760/article/details/113943504)
-
-[【Using CeleX_MP】, about timestamp synchronization](https://blog.csdn.net/tfb760/article/details/114041515)
-
 
